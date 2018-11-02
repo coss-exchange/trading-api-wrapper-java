@@ -1,4 +1,4 @@
-# java-client
+# trading-api-wrapper-java
 
 This repository provides java sample codes to quickly write java client for  coss api.
 
