@@ -20,6 +20,28 @@ import org.json.JSONObject;
 
 public class Examples {
 	
+	
+	
+	/**
+	 * Get server status 
+	 */
+	
+	public static void getServerStatus() {
+		   String response = RequestHandler.makeRequestGET(true,Constants.getPingURL(),null);
+			System.out.println("response = " +  response);
+	}
+
+	/**
+	 * Get server status 
+	 */
+	
+	public static void getServerTime() {
+		   String response = RequestHandler.makeRequestGET(true,Constants.getTimeURL(),null);
+			System.out.println("response = " +  response);
+	}
+	
+	
+	
 	/**
 	 * Get account detail for a user. This is a Signed function.
 	 */
@@ -58,7 +80,8 @@ public class Examples {
 	public static void getMarketSummaries() {
 
 		String response =   
-		RequestHandler.makeRequestGET(true,Constants.getMarketSummariesURL(), "symbol=coss-eth");
+		//RequestHandler.makeRequestGET(true,Constants.getMarketSummariesURL(), "symbol=coss-eth");
+				RequestHandler.makeRequestGET(true,Constants.getMarketSummariesURL(), "");
 		System.out.println("response = " +  response);
 		
 	}
@@ -69,18 +92,34 @@ public class Examples {
 	 */
 	public static void getMarketDepth() {
 		String response =   
-		RequestHandler.makeRequestGET(true,Constants.getMarketDepthURL(), "symbol=coss-eth");
+		RequestHandler.makeRequestGET(true,Constants.getMarketDepthURL(), "symbol=COSS_ETH");
 		System.out.println("response = " +  response);
 		
 		
 	}
+	
+	/**
+	 * Get trade  history  for a specific symbol, e.g.COSS_ETH
+	 * This is a public function.
+	 */
+	public static void getTradeHistory() {
+		String response =   
+		RequestHandler.makeRequestGET(true,Constants.getTradeHistoryURL(), "symbol=COSS_ETH");
+		System.out.println("response = " +  response);
+		
+		
+	}
+	
+	
+	
+	
 	/**
 	 * Get market price for a specific symbol, e.g. coss-eth
 	 * This is a public function.
 	 */
 	public static void getMarketPrice() {
 		String response = 
-		RequestHandler.makeRequestGET(false,Constants.getMarketPriceURL(), "symbol=coss-eth");
+		RequestHandler.makeRequestGET(false,Constants.getMarketPriceURL(), "symbol=COSS_ETH");
 		System.out.println("response = " +  response);
 		
 	}
@@ -95,9 +134,9 @@ public class Examples {
 		
 		JSONObject json = new JSONObject();
 		try {
-			json.put("order_symbol", "coss-eth");
-			json.put("order_side", "SELL");
-			json.put("order_price", "0.000458000");
+			json.put("order_symbol", "COSS_ETH");
+			json.put("order_side", "BUY");
+			json.put("order_price", "0.000646");
 			json.put("order_size", "10");
 			json.put("type", "limit");
 			json.put("timestamp", System.currentTimeMillis());
@@ -125,9 +164,9 @@ public class Examples {
 		JSONObject json = new JSONObject();
 		try {
 			//use your order_id
-			json.put("order_id", "e2186036-b978-42c0-86d1-0749765xxxxx");
+			json.put("order_id", "c8037e69-093e-4174-92c9-aec3d0xxxxxx");
 			//use your symbol
-			json.put("order_symbol", "coss-eth");
+			json.put("order_symbol", "COSS_ETH");
 			json.put("timestamp", System.currentTimeMillis());
 			json.put("recvWindow", 5000);
 		
@@ -187,6 +226,33 @@ public class Examples {
 		
 	}
 	
+	
+	/**
+	 * Get Trade details of a given order
+	 * This is a signed function.
+	 */
+	
+	public static void getOrderTradeDetails() {
+		
+		JSONObject json = new JSONObject();
+		try {
+			json.put("order_id", "e2186036-b978-42c0-86d1-0749765xxxxx");
+			json.put("timestamp", System.currentTimeMillis());
+			json.put("recvWindow", 5000);
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		String response =  RequestHandler.makeRequestPOSTDELETE(false, Constants.POST, Constants.getTradeDetailsURL(), json);
+		System.out.println("response = " +  response);
+		
+	}
+	
+	
+	
+	
 	/**
 	 * Get all orders for a user.
 	 * This is a signed function.
@@ -196,7 +262,7 @@ public class Examples {
 		JSONObject json = new JSONObject();
 		try {
 			json.put("limit", 50);
-			json.put("symbol", "coss-eth");
+			json.put("symbol", "COSS_ETH");
 			json.put("page", 0);
 			json.put("timestamp", System.currentTimeMillis());
 			json.put("recvWindow", 5000);
@@ -237,18 +303,32 @@ public class Examples {
 	
 	public static void main(String[] args) {
 		
-		//getAccountDetails();
-		//getAccountBalances();
+		/* UNSIGNED END POINTS*/
+		
 		//getExchangeInfo();
 		//getMarketSummaries();
+		//getServerStatus();
+		//getServerTime();
 		//getMarketDepth();
 		//getMarketPrice();
+		//getTradeHistory();
+
+		
+		/*  SIGNED END POINTS */
+		//getAccountDetails();
+		//getAccountBalances();
+		//getAllOrders();
+		//getOpenOrders();
+	    //getCompletedOrders();
+		//getOrderDetails();
+		//getOrderTradeDetails();
 		//createNewOrder();
 		//cancelOrder();
-		//getOrderDetails();
-		//getOpenOrders();
-		//getAllOrders();
-		//getCompletedOrders();
+		
+		
+		
+		
+		
 	}
 
 }

@@ -37,7 +37,7 @@ public class RequestHandler {
 		String current = null;
 		String urlEncodedParams = params;
 		StringBuffer urlQuery = new StringBuffer(apiURL);
-		if (null != urlEncodedParams) {
+		if (null != urlEncodedParams && !params.trim().equals("")) {
 			urlQuery.append("?").append(urlEncodedParams);
 		}
 		System.out.println("urlQuery = " + urlQuery);
@@ -48,6 +48,7 @@ public class RequestHandler {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod(Constants.GET);
 			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36");
 
 			if (!isPublic) {
 				try {
