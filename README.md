@@ -4,18 +4,19 @@ This repository provides java sample codes to quickly write java client for  cos
 
 # To run the sample java examples
 
-1. Clone the repository and create a java project with same package structure as under src folder.
+1. Clone the repository and in Eclipse IDE import existing project into workspace and selecrt pom.xml file in import wizard.
 
-2. Put the reference for lib\java-json.jar in your class path.
-
-3. Replace the following variables in Constants.java file with appropriate values. As a safety precaution, 
+2. Replace the following variables in Constants.java file with appropriate values. As a safety precaution, 
    Please do not disclose your keys to any one.
 
-	  String PUBLIC_API_KEY =  "Copy your public api key here";
-	  String PRIVATE_API_KEY = "Copy your privatte key here";
+	  String PUBLIC_API_KEY =  "Paste your public api key here";
+	  String PRIVATE_API_KEY = "Paste your private key here";
+	  
+3. Exanples.java has main method with commented codes. You may uncomment the codes and provide proper values for testing. 
     
-4. Run the Examples.java file. The main method has all  examples as commented codes and 
-   to run the sample code you need to uncomment the approprate example.
+4. Right click the project in Eclipse IDE and select Run as Maven build... and provide compile as maven goal.
+
+5. Righ click Examples and Run as java program.
    
  
    
