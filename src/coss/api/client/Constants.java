@@ -32,9 +32,9 @@ public interface Constants {
      
      
       //Your private key is used to sign the pay load.
- 	  String PUBLIC_API_KEY =  " paste Your public key here";
-	  String PRIVATE_API_KEY = "paste your private key here";
-	  
+     String PUBLIC_API_KEY =  "SmZJM1pnUDB5VFRuVUlxSUdkdFZHay9nQzhXZzYyTGQzRDBwbFdCTzRYd2pYL245MmVCSkFESm5OckplZ1RIUVNZNGtJa2VKZ052dW10Vit3cGFmdjR0aHdPTlZKclllVWFlcWo3WHdQWVk9";
+
+     String PRIVATE_API_KEY = "MSC46rQ1bxtzsUPaF7UykJ37scPnLeyYkQ1SiKS2x8A=";	  
 	 
      static String getExchangeInfoURL() {
     	 return new StringBuffer(COSS_API_TRADE_URL).append(EXCHANGE_INFO).toString();

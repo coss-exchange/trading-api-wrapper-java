@@ -135,9 +135,9 @@ public class Examples {
 		JSONObject json = new JSONObject();
 		try {
 			json.put("order_symbol", "COSS_ETH");
-			json.put("order_side", "BUY");
-			json.put("order_price", "0.000646");
-			json.put("order_size", "10");
+			json.put("order_side", "SELL");
+			json.put("order_price", "0.000658");
+			json.put("order_size", "213.16");
 			json.put("type", "limit");
 			json.put("timestamp", System.currentTimeMillis());
 			json.put("recvWindow", 5000);
@@ -188,7 +188,7 @@ public class Examples {
 	
 		JSONObject json = new JSONObject();
 		try {
-			json.put("order_id", "e2186036-b978-42c0-86d1-0749765xxxxx");
+			json.put("order_id", "ee5b7371-f437-4e59-8ae7-870f7f234766");
 			json.put("timestamp", System.currentTimeMillis());
 			json.put("recvWindow", 5000);
 		
@@ -236,7 +236,7 @@ public class Examples {
 		
 		JSONObject json = new JSONObject();
 		try {
-			json.put("order_id", "e2186036-b978-42c0-86d1-0749765xxxxx");
+			json.put("order_id", "ee5b7371-f437-4e59-8ae7-870f7f234766");
 			json.put("timestamp", System.currentTimeMillis());
 			json.put("recvWindow", 5000);
 			
@@ -312,22 +312,18 @@ public class Examples {
 		//getMarketDepth();
 		//getMarketPrice();
 		//getTradeHistory();
+	    //getAccountDetails();
 
-		
 		/*  SIGNED END POINTS */
-		//getAccountDetails();
+		
 		//getAccountBalances();
 		//getAllOrders();
 		//getOpenOrders();
-	    //getCompletedOrders();
+	    // getCompletedOrders();
 		//getOrderDetails();
-		//getOrderTradeDetails();
+		getOrderTradeDetails();
 		//createNewOrder();
 		//cancelOrder();
-		
-		
-		
-		
 		
 	}
 
